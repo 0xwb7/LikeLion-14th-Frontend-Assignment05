@@ -20,9 +20,12 @@ export default function App() {
       return;
     }
 
+    setCount(10);
+
     const countDown = setInterval(() => {
       setCount((sec) => {
-        if (sec <= 0) {
+        if (sec <= 1) {
+          clearInterval(countDown);
           return 0;
         }
 
@@ -112,7 +115,7 @@ export default function App() {
 
                 <div className="bg-gray-200 rounded-2xl py-14 text-center">
                   <p className="text-4xl font-bold text-gray-600">
-                    {count === 0 ? "💥 시간 종료!" : `${count}초`}
+                    {count === 0 ? "💥 시간 종료!" : `${count}`}
                   </p>
                 </div>
               </div>
