@@ -55,25 +55,47 @@ export default function App() {
                 </button>
               </div>
             </div>
-            <div className="bg-white rounded-2xl p-10 mt-10">
-              <div className="flex items-center gap-5 mb-8">
-                <div className="w-16 h-16 rounded-2xl bg-gray-200 flex items-center justify-center text-3xl">
-                  🕐
+            {mode === "clock" && (
+              <div className="bg-white rounded-2xl p-10 mt-10">
+                <div className="flex items-center gap-5 mb-8">
+                  <div className="w-16 h-16 rounded-2xl bg-gray-200 flex items-center justify-center text-3xl">
+                    🕐
+                  </div>
+
+                  <div>
+                    <h3 className="text-2xl font-bold text-left mb-1">현재 시각</h3>
+                    <p className="text-gray-500">1초마다 시간이 업데이트됩니다.</p>                   
+                  </div>
                 </div>
 
-                <div>
-                  <h3 className="text-2xl font-bold text-left mb-1">현재 시각</h3>
-                  <p className="text-gray-500">1초마다 시간이 업데이트됩니다.</p>                   
+                <div className="bg-gray-200 rounded-2xl py-14 text-center">
+                  <p className="text-4xl font-bold text-gray-600">
+                    {timeString}
+                  </p>
                 </div>
               </div>
+            )}
+            
+            {mode === "timer" && (
+              <div className="bg-white rounded-2xl p-10 mt-10">
+                <div className="flex items-center gap-5 mb-8">
+                  <div className="w-16 h-16 rounded-2xl bg-gray-200 flex items-center justify-center text-3xl">
+                    💣
+                  </div>
 
-              <div className="bg-gray-200 rounded-2xl py-14 text-center">
-                <p className="text-4xl font-bold text-gray-600">
-                  {timeString}
-                </p>
+                  <div>
+                    <h3 className="text-2xl font-bold text-left mb-1">카운트다운</h3>
+                    <p className="text-gray-500">10초부터 0초까지 감소합니다.</p>                   
+                  </div>
+                </div>
+
+                <div className="bg-gray-200 rounded-2xl py-14 text-center">
+                  <p className="text-4xl font-bold text-gray-600">
+                    temp
+                  </p>
+                </div>
               </div>
-            </div>
-      
+            )}
           </div>
         </div>
     </main>
