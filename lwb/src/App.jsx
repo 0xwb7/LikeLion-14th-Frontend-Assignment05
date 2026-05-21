@@ -11,19 +11,19 @@ export default function App() {
               5주차 프엔 과제
             </p>
 
-            <h2 className="text-4xl font-extrabold text-white mb-3">
+            <h1 className="text-4xl font-bold text-white mb-3">
               실시간 시계 & 카운트다운 타이머
-            </h2>
+            </h1>
 
-            <p className="text-white">
+            <p className="mb-2 text-white">
               실시간 시계와 카운트다운 타이머를 구현하는 과제
             </p>
 
-            <div className="flex items-center justify-center mt-8">
+            <div className="flex items-center justify-center mt-6">
               <div className="bg-white p-2 rounded-2xl flex gap-4">
                 <button 
                   onClick={() => setMode("clock")}
-                  className={`px-6 py-4 rounded-xl font-bold transition ${
+                  className={`px-6 py-4 rounded-xl transition ${
                     mode === "clock"
                       ? "bg-blue-600 text-white font-bold"
                       : "text-gray-500 hover:text-black"
@@ -33,16 +33,28 @@ export default function App() {
 
                   <button 
                   onClick={() => setMode("timer")}
-                  className={`px-6 py-4 rounded-xl font-bold transition ${
+                  className={`px-6 py-4 rounded-xl transition ${
                     mode === "timer"
                       ? "bg-blue-600 text-white font-bold"
                       : "text-gray-500 hover:text-black"
                     }`}>
                   타이머 보기
                 </button>
-                
               </div>
             </div>
+            <div className="bg-white rounded-2xl p-10 mt-10">
+              <div className="flex items-center gap-5 mb-8">
+                <div className="w-16 h-16 rounded-2xl bg-blue-100 flex items-center justify-center text-3xl">
+                  🕐
+                </div>
+
+                <div>
+                  <h3 className="text-2xl font-bold text-left mb-1">현재 시각</h3>
+                  <p className="text-gray-500">1초마다 시간이 업데이트됩니다.</p>                   
+                </div>
+              </div>
+            </div>
+      
           </div>
         </div>
     </main>
