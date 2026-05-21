@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 export default function App() {
   const [mode, setMode] = useState("clock");
   const [now, setNow] = useState(new Date());
+  const [count, setCount] = useState(10);
 
   useEffect(() => {
     const intervalId = setInterval(() => {
@@ -13,6 +14,26 @@ export default function App() {
       clearInterval(intervalId);
     };
   }, []);
+
+  useEffect(() => {
+    if (mode !== "timer") {
+      return;
+    }
+
+    const countDown = setInterval(() => {
+      setCount((sec) => {
+        if (sec <= 0) {
+          return 0;
+        }
+
+        return sec - 1;
+      });
+    }, 1000);
+
+    return () => {
+      clearInterval(countDown);
+    };
+  }, [mode]);
 
   const timeString = now.toLocaleTimeString();
 
@@ -91,7 +112,7 @@ export default function App() {
 
                 <div className="bg-gray-200 rounded-2xl py-14 text-center">
                   <p className="text-4xl font-bold text-gray-600">
-                    temp
+                    {count === 0 ? "💥 시간 종료!" : `${count}초`}
                   </p>
                 </div>
               </div>
