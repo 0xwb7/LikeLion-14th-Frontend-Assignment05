@@ -41,6 +41,7 @@ export default function App() {
   const timeString = now.toLocaleTimeString();
 
   return (
+    // flex 사용, p, m, font, items-center, justify-center, hover 등 배운 내용 활용
     <main className="p-6 min-h-screen bg-gradient-to-br from-gray-500 via-gray-500 to-gray-900 flex items-center justify-center font-pretendard">
         <div className="w-full max-w-2xl">
           <div className="mb-8 text-center">
@@ -79,8 +80,17 @@ export default function App() {
                 </button>
               </div>
             </div>
+
+            <div className="flex justify-center mt-6">
+              <div className="bg-white px-6 py-3 rounded-full shadow text-gray-500 font-bold">
+                현재 보기:
+                <span className="text-gray-800 font-bold ml-1">
+                  {mode === "clock" ? "시계" : "카운트다운"}
+                </span>
+              </div>
+            </div>
             {mode === "clock" && (
-              <div className="bg-white rounded-2xl p-10 mt-10">
+              <div className="bg-white rounded-2xl p-10 mt-6">
                 <div className="flex items-center gap-5 mb-8">
                   <div className="w-16 h-16 rounded-2xl bg-gray-200 flex items-center justify-center text-3xl">
                     🕐
@@ -101,7 +111,7 @@ export default function App() {
             )}
             
             {mode === "timer" && (
-              <div className="bg-white rounded-2xl p-10 mt-10">
+              <div className="bg-white rounded-2xl p-10 mt-6">
                 <div className="flex items-center gap-5 mb-8">
                   <div className="w-16 h-16 rounded-2xl bg-gray-200 flex items-center justify-center text-3xl">
                     💣
