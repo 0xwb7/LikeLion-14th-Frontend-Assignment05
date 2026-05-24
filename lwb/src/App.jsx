@@ -67,9 +67,9 @@ export default function App() {
                       : "text-gray-500 hover:text-black"
                     }`}>
                   시계 보기
-                  </button>
+                </button>
 
-                  <button 
+                <button
                   onClick={() => setMode("timer")}
                   className={`px-6 py-4 rounded-xl transition ${
                     mode === "timer"
